@@ -1,0 +1,4 @@
+name = "acp-client"
+
+# Not strictly needed for `bun run`, but kept for completeness.
+# Bun will run TypeScript directly via `bun run src/index.ts`.

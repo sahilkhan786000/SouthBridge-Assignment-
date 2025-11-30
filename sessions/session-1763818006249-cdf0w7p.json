@@ -1,0 +1,14 @@
+{
+  "id": "session-1763818006249-cdf0w7p",
+  "workspace": "C:\\Users\\tudip\\OneDrive\\Documents\\acp-client",
+  "model": "claude-3-5-sonnet-20241022",
+  "messages": [
+    {
+      "role": "user",
+      "content": "List of Kdramas of Ji sung",
+      "timestamp": 1763818019115
+    }
+  ],
+  "createdAt": 1763818006249,
+  "updatedAt": 1763818019116
+}
