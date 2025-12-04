@@ -62,3 +62,140 @@ ACP messages are sent as **newline-delimited JSON**:
 {"type":"initialize","payload":{}}
 {"type":"session_created","payload":{"sessionId":"abc"}}
 {"type":"stream_chunk","payload":{"chunk":"hello"}}
+
+### This enables:
+
+- Incremental updates
+- Token streaming
+- Real-time tool call detection
+
+### My agent:
+
+- Reads/writes NDJSON on stdin/stdout  
+- Buffers partial lines  
+- Parses each message independently  
+
+---
+
+## 🔹 Tool Calls
+
+ACP supports structured tool calls like:
+
+
+### My implementation:
+
+- Detects the first valid `TOOL_CALL`  
+- Extracts JSON using brace matching  
+- Validates the tool name  
+- Prompts the user (Y/N) in the TUI  
+- Executes the tool via `ToolManager`  
+- Returns a structured `tool_result` event  
+
+This fully matches expected ACP behavior.
+
+---
+
+## ❌ Why I Did **NOT** Use the ACP TypeScript SDK / ACP Daemon
+
+Although allowed, I intentionally did **not** use:
+
+- `@anthropic-ai/claude-code-acp` (SDK)  
+- ACP Daemon  
+- Any high-level adapter  
+
+---
+
+### 1. Demonstrate deep protocol understanding
+
+The assignment tests comprehension of:
+
+- NDJSON streaming  
+- Tool call state machines  
+- Multi-agent IPC  
+- Session persistence  
+- Workspace logic  
+
+Using the SDK hides these details.
+
+---
+
+### 2. More control + easier debugging
+
+Custom routing allowed:
+
+- Inspecting raw LLM output  
+- Custom tool approval UI  
+- Full logging  
+- Custom session management  
+
+---
+
+### 3. Simplicity for a local Bun-based agent
+
+Avoids running external daemons or configuring adapters.
+
+---
+
+### 4. Limited time
+
+The SDK requires additional setup; writing minimal ACP logic was faster.
+TOOL_CALL: {"name":"create_file","args":{"path":"test.txt","content":"Hello"}}
+
+
+### My implementation:
+
+- Detects the first valid `TOOL_CALL`  
+- Extracts JSON using brace matching  
+- Validates the tool name  
+- Prompts the user (Y/N) in the TUI  
+- Executes the tool via `ToolManager`  
+- Returns a structured `tool_result` event  
+
+This fully matches expected ACP behavior.
+
+---
+
+## ❌ Why I Did **NOT** Use the ACP TypeScript SDK / ACP Daemon
+
+Although allowed, I intentionally did **not** use:
+
+- `@anthropic-ai/claude-code-acp` (SDK)  
+- ACP Daemon  
+- Any high-level adapter  
+
+---
+
+### 1. Demonstrate deep protocol understanding
+
+The assignment tests comprehension of:
+
+- NDJSON streaming  
+- Tool call state machines  
+- Multi-agent IPC  
+- Session persistence  
+- Workspace logic  
+
+Using the SDK hides these details.
+
+---
+
+### 2. More control + easier debugging
+
+Custom routing allowed:
+
+- Inspecting raw LLM output  
+- Custom tool approval UI  
+- Full logging  
+- Custom session management  
+
+---
+
+### 3. Simplicity for a local Bun-based agent
+
+Avoids running external daemons or configuring adapters.
+
+---
+
+### 4. Limited time
+
+The SDK requires additional setup; writing minimal ACP logic was faster.
