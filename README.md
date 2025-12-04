@@ -174,18 +174,23 @@ bun src/tui-client.tsx
 ```
 
 #### Create a file
-```create a file named test.txt with content "Hello World"
+```bash
+create a file named test.txt with content "Hello World"
 ```
 
 #### Read a file
-```read file test.txt
+```bash
+read file test.txt
 ```
 
 #### Edit a file
+```bash
 edit file test.txt and replace Hello with Hi
+```
 
 #### Run shell
-```run ls
+```bash
+run ls
 ```
 
 ---
