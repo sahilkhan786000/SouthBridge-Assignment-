@@ -146,40 +146,63 @@ This fully matches expected ACP behavior.
 
 ---
 
-## ❌ Why I Did **NOT** Use the ACP TypeScript SDK / ACP Daemon
+##  How to Run the Project
 
-Although allowed, I intentionally did **not** use:
+### 1. Install dependencies
+```bash
+bun install
+```
 
-- `@anthropic-ai/claude-code-acp` (SDK)  
-- ACP Daemon  
-- Any high-level adapter  
+### 2. Install & run Ollama
 
+#### Download:
+https://ollama.com/download
 
-### 1. Demonstrate deep protocol understanding
+#### Run server:
+```bash
+ollama serve
+```
 
-The assignment tests comprehension of:
+#### Pull supported model:
+```bash
+ollama pull phi3
+```
 
-- NDJSON streaming  
-- Tool call state machines  
-- Multi-agent IPC  
-- Session persistence  
-- Workspace logic  
+### 3. Run the TUI
+```bash
+bun src/tui-client.tsx
+```
 
-Using the SDK hides these details.
+#### Create a file
+```create a file named test.txt with content "Hello World"
+```
 
-### 2. More control + easier debugging
+#### Read a file
+```read file test.txt
+```
 
-Custom routing allowed:
+#### Edit a file
+edit file test.txt and replace Hello with Hi
 
-- Inspecting raw LLM output  
-- Custom tool approval UI  
-- Full logging  
-- Custom session management  
+#### Run shell
+```run ls
+```
 
-### 3. Simplicity for a local Bun-based agent
+---
 
-Avoids running external daemons or configuring adapters.
+## 🤖 AI Use Disclosure (Required by Southbridge Policy)
 
-### 4. Limited time
+I used AI tools (ChatGPT/Claude) for:
 
-The SDK requires additional setup; writing minimal ACP logic was faster.
+- Drafting parts of the architecture  
+- Refining code patterns  
+- Debugging  
+- Improving this README  
+
+However:
+
+- All code was written, refactored, tested, and verified manually  
+- All decisions (architecture, structure, fixes) were made by me  
+- No code was blindly copied  
+
+The final solution reflects my understanding of ACP, TypeScript, streaming, state machines, and TUI design.
