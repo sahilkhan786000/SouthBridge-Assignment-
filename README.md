@@ -52,7 +52,6 @@ The project is written entirely in **TypeScript**, runs with **Bun**, and uses *
 
 ACP is a **bidirectional, streaming JSON protocol** used by coding assistants to coordinate with client applications.
 
----
 
 ### 🔹 NDJSON Format
 
@@ -62,6 +61,7 @@ ACP messages are sent as **newline-delimited JSON**:
 {"type":"initialize","payload":{}}
 {"type":"session_created","payload":{"sessionId":"abc"}}
 {"type":"stream_chunk","payload":{"chunk":"hello"}}
+```
 
 ### This enables:
 
@@ -103,8 +103,6 @@ Although allowed, I intentionally did **not** use:
 - ACP Daemon  
 - Any high-level adapter  
 
----
-
 ### 1. Demonstrate deep protocol understanding
 
 The assignment tests comprehension of:
@@ -117,8 +115,6 @@ The assignment tests comprehension of:
 
 Using the SDK hides these details.
 
----
-
 ### 2. More control + easier debugging
 
 Custom routing allowed:
@@ -128,19 +124,14 @@ Custom routing allowed:
 - Full logging  
 - Custom session management  
 
----
-
 ### 3. Simplicity for a local Bun-based agent
 
 Avoids running external daemons or configuring adapters.
-
----
 
 ### 4. Limited time
 
 The SDK requires additional setup; writing minimal ACP logic was faster.
 TOOL_CALL: {"name":"create_file","args":{"path":"test.txt","content":"Hello"}}
-
 
 ### My implementation:
 
@@ -163,7 +154,6 @@ Although allowed, I intentionally did **not** use:
 - ACP Daemon  
 - Any high-level adapter  
 
----
 
 ### 1. Demonstrate deep protocol understanding
 
@@ -177,8 +167,6 @@ The assignment tests comprehension of:
 
 Using the SDK hides these details.
 
----
-
 ### 2. More control + easier debugging
 
 Custom routing allowed:
@@ -188,13 +176,9 @@ Custom routing allowed:
 - Full logging  
 - Custom session management  
 
----
-
 ### 3. Simplicity for a local Bun-based agent
 
 Avoids running external daemons or configuring adapters.
-
----
 
 ### 4. Limited time
 
